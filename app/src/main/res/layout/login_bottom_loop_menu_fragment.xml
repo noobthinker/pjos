@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.pj109.xkorey.pjos.ui.login.LoginBottomLoopMenuViewModel" />
+    </data>
+
+    <RelativeLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/placeHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/showForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <com.cleveroad.loopbar.widget.LoopBarView
+                android:background="@color/indigo_dark"
+                android:id="@+id/endlessView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                app:enls_orientation="horizontalBottom"
+                app:enls_overlaySize="5dp"
+                app:enls_placeholderId="@id/placeHolder"
+                app:enls_scrollMode="auto"
+                app:enls_selectionBackground="@android:color/holo_blue_dark"
+                app:enls_selectionGravity="start"
+                app:enls_selectionInAnimation="@animator/enls_scale_restore"
+                app:enls_selectionMargin="5dp"
+                app:enls_menu="@menu/loopbar_login"
+                app:enls_selectionOutAnimation="@animator/enls_scale_small"/>
+
+    </RelativeLayout>
+
+</layout>

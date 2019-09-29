@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="eventFilter"
+            type="com.pj109.xkorey.pjos.ui.tag.EventFilter" />
+    </data>
+
+    <com.pj109.xkorey.pjos.ui.tag.EventFilterView
+        android:id="@+id/filter_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        app:color="@{eventFilter.getColor()}"
+        app:eventFilterTextShort="@{eventFilter}"
+        app:selectedTextColor="@{eventFilter.getSelectedTextColor()}"
+        app:showIcons="false" />
+
+</layout>

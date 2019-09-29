@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navigation_image"
+        android:icon="@drawable/ic_nav_image"
+        android:title="@string/title_image"
+        app:contentDescription="@string/title_image" />
+
+    <item
+        android:id="@+id/navigation_media"
+        android:icon="@drawable/ic_nav_media"
+        android:title="@string/title_media"
+        app:contentDescription="@string/title_media" />
+
+    <item
+        android:id="@+id/navigation_maze"
+        android:icon="@drawable/ic_nav_maze"
+        android:title="@string/title_maze"
+        app:contentDescription="@string/title_maze" />
+</menu>

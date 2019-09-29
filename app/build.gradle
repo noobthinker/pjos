@@ -1,0 +1,134 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    defaultConfig {
+        applicationId "com.pj109.xkorey.pjos"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [crashlyticsEnabled: true]
+
+        buildConfigField "String", "APPNAME", "\"${self_name}\""
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            manifestPlaceholders = [crashlyticsEnabled: true]
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        staging {
+            initWith debug
+
+            // Specifies a sorted list of fallback build types that the
+            // plugin should try to use when a dependency does not include a
+            // "staging" build type.
+            // Used with :test-shared, which doesn't have a staging variant.
+            matchingFallbacks = ['debug']
+        }
+
+    }
+    dataBinding {
+        enabled true
+    }
+
+    // debug and release variants share the same source dir
+    sourceSets {
+        debug.java.srcDir 'src/debugRelease/java'
+        release.java.srcDir 'src/debugRelease/java'
+    }
+
+    lintOptions {
+        disable "InvalidPackage", "MissingTranslation"
+    }
+
+    testBuildType "staging"
+}
+
+dependencies {
+    implementation project(':share')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // UI
+    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
+    implementation "androidx.browser:browser:$rootProject.browserVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+    implementation "com.google.android:flexbox:$rootProject.flexboxVersion"
+    implementation "com.airbnb.android:lottie:$rootProject.lottieVersion"
+    implementation "com.pacioianu.david:ink-page-indicator:$rootProject.pageIndicatorVersion"
+
+    implementation "com.google.protobuf:protobuf-java:$rootProject.protobufVersion"
+
+    // Architecture Components
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.lifecycleVersion"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.lifecycleVersion"
+
+    // Dagger
+    implementation "com.google.dagger:dagger-android:$rootProject.dagger"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+
+    implementation "com.crashlytics.sdk.android:crashlytics:$crashlyticsVersion"
+
+    // Utils
+    // Date and time API for Java.
+    api "com.jakewharton.threetenabp:threetenabp:$rootProject.threetenabpVersion"
+    testImplementation "org.threeten:threetenbp:$rootProject.threetenbpVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
+
+    // Instrumentation tests
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test:runner:$rootProject.runnerVersion"
+    androidTestImplementation "androidx.test:rules:$rootProject.rulesVersion"
+
+    // Local unit tests
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    testImplementation "com.nhaarman:mockito-kotlin:$rootProject.mockitoKotlinVersion"
+    testImplementation "org.hamcrest:hamcrest-library:$rootProject.hamcrestVersion"
+
+    // Leak Canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+    stagingImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+
+    // Solve conflicts with gson. DataBinding is using an old version.
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    // loopbar
+    implementation "com.cleveroad:loopbar:$loopbarVersion"
+    //markdown
+    implementation "com.github.GrenderG:MarkdownView:$MarkdownViewVersion"
+
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation "com.github.blennerSilva:AwesomeDialog:2.0.6"
+}
+repositories {
+    maven { url 'https://jitpack.io' }
+    mavenCentral()
+}

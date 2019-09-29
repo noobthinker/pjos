@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="model"
+                type="com.pj109.xkorey.model.dto.MediaAndTags" />
+
+        <variable
+                name="eventAction"
+                type="com.pj109.xkorey.pjos.ui.common.EventAction"/>
+
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:onClick="@{() -> eventAction.openMediaDetail(model.media.id)}"
+                android:paddingEnd="@dimen/spacing_normal"
+                android:paddingVertical="@dimen/spacing_normal"
+                tools:targetApi="o">
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/keyline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="?mediaListKeyline" />
+
+            <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.media.mediaName}"
+                    android:textAppearance="@style/TextAppearance.MediaTitle"
+                    app:layout_constraintEnd_toStartOf="@+id/bookmark_media"
+                    app:layout_constraintStart_toEndOf="@id/keyline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="名称" />
+
+            <com.google.android.material.internal.CheckableImageButton
+                    android:id="@+id/bookmark_media"
+                    android:layout_width="@dimen/a11y_min_touch_target"
+                    android:layout_height="@dimen/a11y_min_touch_target"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:checked="@{model.media.marker}"
+                    android:contentDescription="@string/a11y_star"
+                    android:onClick="@{() -> eventAction.onStarClicked(model)}"
+                    android:src="@drawable/star_event"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <com.pj109.xkorey.pjos.ui.remark.RemarkTextView
+                    android:id="@+id/remark_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_micro"
+                    android:drawablePadding="@dimen/spacing_normal"
+                    android:gravity="center_vertical"
+                    android:textAppearance="@style/TextAppearance.ReservationStatus"
+                    app:layout_constraintEnd_toEndOf="@id/title"
+                    app:layout_constraintStart_toEndOf="@id/keyline"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    tools:drawableStart="@drawable/ic_reserved"
+                    tools:text="Remark"
+                    tools:visibility="visible"
+            />
+
+            <ImageView
+                    android:id="@+id/livestream_icon"
+                    android:layout_width="18dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="14dp"
+                    android:importantForAccessibility="no"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toTopOf="@id/tags_barrier"
+                    app:layout_constraintEnd_toStartOf="@id/length_location"
+                    app:layout_constraintStart_toEndOf="@id/keyline"
+                    app:layout_constraintTop_toBottomOf="@id/remark_status"
+                    app:srcCompat="@drawable/ic_livestreamed" />
+
+            <TextView
+                    android:id="@+id/length_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.ListSecondary"
+                    app:layout_constraintBottom_toTopOf="@id/tags_barrier"
+                    app:layout_constraintEnd_toEndOf="@id/title"
+                    app:layout_constraintStart_toEndOf="@id/livestream_icon"
+                    app:layout_constraintTop_toBottomOf="@id/remark_status"
+                    tools:text="1 hour / Amphitheatre" />
+
+            <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/tags_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="livestream_icon,length_location" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/tags"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/spacing_micro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/keyline"
+                    app:layout_constraintTop_toBottomOf="@id/tags_barrier"
+                    app:mediaTagBind="@{model.tags}"
+                    tools:listitem="@layout/media_item_tag" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

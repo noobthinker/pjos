@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.pj109.xkorey.pjos.ui.login.SignInViewModel" />
+
+    </data>
+
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/margin_normal"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+            <ImageButton
+                    android:id="@+id/up"
+                    android:layout_width="?actionBarSize"
+                    android:layout_height="?actionBarSize"
+                    android:layout_gravity="start|top"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/navigate_up"
+                    app:srcCompat="@drawable/ic_arrow_back" />
+
+            <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:minHeight="?actionBarSize"
+                    android:text="@{viewModel.loopbarTitle}"
+                    android:textAppearance="@style/TextAppearance.ToolbarTitle" />
+
+        </FrameLayout>
+
+
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+            android:id="@+id/loopbar_phoneLogin"
+            android:icon="@drawable/loopbar_phone_login"
+            android:title="@string/loopbar_user_phone_login"
+            app:contentDescription="@string/loopbar_user_phone_login" />
+
+    <item
+            android:id="@+id/loopbar_keyLogin"
+            android:icon="@drawable/loopbar_key_login"
+            android:title="@string/loopbar_user_key_login"
+            app:contentDescription="@string/loopbar_user_key_login" />
+
+    <item
+            android:id="@+id/loopbar_register"
+            android:icon="@drawable/loopbar_user_register"
+            android:title="@string/loopbar_user_register"
+            app:contentDescription="@string/loopbar_user_register" />
+
+    <item
+            android:id="@+id/loopbar_anonymous"
+            android:icon="@drawable/loopbar_anonymous"
+            android:title="@string/loopbar_user_anonymous"
+            app:contentDescription="@string/loopbar_user_anonymous" />
+
+    <item
+            android:id="@+id/loopbar_agreement"
+            android:icon="@drawable/loopbar_agreement"
+            android:title="@string/agreement"
+            app:contentDescription="@string/agreement" />
+</menu>

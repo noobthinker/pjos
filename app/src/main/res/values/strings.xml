@@ -1,0 +1,76 @@
+<resources>
+
+    <string name="title_image" translation_description="图片">图片</string>
+    <string name="title_media" translation_description="视频">视频</string>
+    <string name="title_maze" translation_description="迷宫">迷宫</string>
+    <string name="title_settings" translation_description="设置">设置</string>
+
+    <string name="app_name">pjos</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="onboarding_welcome_to" translation_description="欢迎使用里没崖">欢迎使用</string>
+    <string name="onboarding_join_online" translation_description="加入我们">加入我们</string>
+    <string name="onboarding_phone_disk" translation_description="手机空间减负">给手机空间减负</string>
+    <string name="onboarding_get_started" translation_description="开始">进入app</string>
+
+    <string name="image_all_title" translation_description="所有图片">图片</string>
+    <string name="image_folder_title" translation_description="文件夹">文件夹</string>
+    <string name="faq_title" translation_description="The title for the tab that shows FAQ.">FAQ</string>
+    <string name="image_settings_title" translation_description="设置">设置</string>
+    <string name="image_about_title" translation_description="使用信息">使用信息</string>
+
+    <string name="a11y_star" translation_description="收藏或者取消收藏">收藏</string>
+    <string name="media_filters_empty" translation_description="未发现标签">请先创建标签或者刷新页面</string>
+
+    <string name="dialog_sign_in_title" translation_description="加入我们">加入</string>
+    <string name="dialog_sign_in_content" translation_description="登录后使用相关服务">
+        加入后可以有更好的服务体验，匿名使用会有诸多限制，匿名可以先体验功能然后在加入。具体功能可以参看使用相关介绍。
+    </string>
+
+    <string name="settings" translation_description="设置">设置</string>
+    <string name="not_now" translation_description="暂不">暂不</string>
+    <string name="anonymous" translation_description="匿名">匿名</string>
+    <string name="sign_in" translation_description="加入">加入</string>
+    <string name="fast_sign_in" translation_description="快速加入">快速加入</string>
+    <string name="next_step" translation_description="下一步">下一步</string>
+    <string name="sms_send" translation_description="发送">发送</string>
+    <string name="prompt_phone" translation_description="手机号">手机号</string>
+    <string name="prompt_password" translation_description="密码">密码</string>
+    <string name="prompt_password_repeat" translation_description="再次输入密码">再次输入密码</string>
+    <string name="nick_name" translation_description="昵称">昵称</string>
+    <string name="agreement" translation_description="协议">协议</string>
+    <string name="agreement_ok" translation_description="已阅读并接受用户协议">已阅读并接受用户协议</string>
+    <string name="agreement_fail" translation_description="不接受用户协议">不接受用户协议,任何建议可以发给我们</string>
+    <string name="register" translation_description="注册">注册</string>
+    <string name="captcha" translation_description="验证码">验证码</string>
+    <string name="sms_code" translation_description="短信验证码">短信验证码</string>
+    <string name="invite_code" translation_description="邀请码">邀请码</string>
+    <string name="loopbar_user_register" translation_description="注册">注册</string>
+    <string name="loopbar_user_phone_login" translation_description="验证码登陆">验证码登陆</string>
+    <string name="loopbar_user_anonymous" translation_description="匿名">匿名</string>
+    <string name="loopbar_user_key_login" translation_description="标识登陆">标识登陆</string>
+    <string name="faq_url" translatable="false">http://baidu.com</string>
+    <string name="weibo_url" translatable="false">http://weibo.com</string>
+    <string name="weibo_link" translatable="false">微博</string>
+    <string name="navigate_up" translation-description="后退">后退</string>
+
+    <string name="a11y_clear_tag_filters" translation_description="清除">清除</string>
+    <string name="filters" translation_description="筛选">筛选</string>
+    <string name="reset" translation_description="重置">重置</string>
+    <string name="a11y_collapse_filters_sheet" translation_description="Description of a button to lower the filters sheet.">Lower filters sheet</string>
+
+
+    <string name="a11y_filter_applied" translation_description="标签筛选">%1s Tag 选择</string>
+    <string name="a11y_filter_not_applied" translation_description="标签筛选">%1s Tag 未选择</string>
+
+
+    <string name="starred_and_reserved">标星</string>
+    <string name="starred_and_reserved_short">已标星</string>
+
+    <plurals name="filter_event_count" translation_description="A label showing how many events match the current filters">
+        <item quantity="one">%1$d 标签</item>
+        <item quantity="other">%1$d 标签</item>
+    </plurals>
+</resources>
